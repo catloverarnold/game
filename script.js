@@ -15,3 +15,21 @@ function checkGuess() {
         feedback.style.color = "red";
     }
 }
+
+function updateSwimmers() {
+  const guessInput = document.getElementById('guessInput');
+  const stickFiguresContainer = document.getElementById('stickFigures');
+  const numberOfSwimmers = parseInt(guessInput.value, 10) || 0;
+
+  while (stickFiguresContainer.firstChild) {
+    stickFiguresContainer.removeChild(stickFiguresContainer.firstChild);
+  }
+
+  for (let i = 0; i < numberOfSwimmers; i++) {
+    const stickFigure = document.createElement('div');
+    stickFigure.classList.add('stickFigure');
+    stickFigure.style.left = `${(i * 20) % 100}px`;
+    stickFigure.style.bottom = `${Math.floor(i / 5) * 30}px`;
+    stickFiguresContainer.appendChild(stickFigure);
+  }
+}
