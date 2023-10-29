@@ -10,13 +10,13 @@
 <h2>Game 1</h2>
     <div class="game-container">
       <div id="pool-container">
-        <div id="pool"></div>
-        <div id="swimmers"></div>
+        <div id="pool" style="height: 100px; width: 100px; background-color: rgb(19, 19, 193); padding: 16px" id="pool">        <div id="stickFigures"></div>
+      </div>
       </div>
         <h1>Number Guessing Game</h1>
         <p>Guess a number between 1 and 100</p>
         <input type="number" id="guessInput" min="1" max="100">
-        <button onclick="checkGuess()">Submit Guess</button>
+        <button onclick="checkGuess(); updateSwimmers();">Submit Guess</button>
         <p id="feedback"></p>
     </div>
     <script src="script.js"></script>
