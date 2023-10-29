@@ -1,13 +1,17 @@
-// Add this code to handle the "Next" button for Instagram posts
-document.addEventListener('DOMContentLoaded', () => {
-  // ... existing game code ...
+let randomNumber = Math.floor(Math.random() * 100) + 1;
 
-  const posts = document.querySelectorAll('#instagram-container blockquote');
-  let currentPost = 0;
+function checkGuess() {
+    const guess = document.getElementById("guessInput").value;
+    const feedback = document.getElementById("feedback");
 
-  document.getElementById('next-post').addEventListener('click', () => {
-    posts[currentPost].style.display = 'none';
-    currentPost = (currentPost + 1) % posts.length;
-    posts[currentPost].style.display = 'block';
-  });
-});
+    if (guess == randomNumber) {
+        feedback.textContent = "Congratulations! You guessed it right!";
+        feedback.style.color = "green";
+    } else if (guess < randomNumber) {
+        feedback.textContent = "Too low! Try again.";
+        feedback.style.color = "red";
+    } else {
+        feedback.textContent = "Too high! Try again.";
+        feedback.style.color = "red";
+    }
+}
